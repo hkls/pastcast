@@ -1,5 +1,6 @@
 <h1 align="center"><img width="50" height="50" alt="IconOnly_Transparent_NoBuffer" src="https://github.com/user-attachments/assets/5107d943-8a58-49a5-b088-ed9262310586" /> PastCast</h1>
 
+[![Build](https://github.com/hkls/pastcast/actions/workflows/rust.yml/badge.svg)](https://github.com/hkls/pastcast/actions/workflows/rust.yml)
 [![License](https://img.shields.io/badge/license-BSD%203--Clause-blue.svg)](LICENSE)
 [![Made with Rust](https://img.shields.io/badge/Made%20with-Rust-orange)](https://www.rust-lang.org/)
 
