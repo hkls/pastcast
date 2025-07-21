@@ -7,12 +7,15 @@ pub async fn home_handler(State(state): State<Arc<AppState>>) -> impl axum::resp
     match state
         .services
         .weather_service
-        .get_weather_data(PgPoint { x: 0.0, y: 0.0 })
+        .get_weather_data(PgPoint {
+            x: -33.9249,
+            y: 18.4241,
+        })
         .await
     {
-        Ok(_) => {
+        Ok(res) => {
             // Access values from the shared config
-            format!("Welcome to {} v{}", 1, 2)
+            format!("Welcome to {}", res.first().unwrap().country)
         }
         Err(err) => {
             format!("Failed to fetch weather data: {}", err)

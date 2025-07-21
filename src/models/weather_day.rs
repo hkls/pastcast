@@ -1,9 +1,9 @@
 use chrono::{DateTime, Utc};
-use serde::{Deserialize, Serialize};
 use sqlx::FromRow;
+use sqlx::postgres::types::PgPoint;
 use uuid::Uuid;
 
-#[derive(Debug, Serialize, Deserialize, FromRow)]
+#[derive(Debug, FromRow)]
 pub struct WeatherDay {
     pub id: i64,
     pub uuid: Uuid,
@@ -19,7 +19,7 @@ pub struct WeatherDay {
     pub country: String,
 
     // PostgreSQL `point` should be mapped as (f64, f64) or use a custom type.
-    pub latlon: (f64, f64),
+    pub latlon: PgPoint,
 
     pub unit: String,
 

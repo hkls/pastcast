@@ -21,7 +21,7 @@ impl WeatherRepository for Repository {
     // be used to fetch weather data for a specific location.
     async fn get_weather_data(&self, pg_point: PgPoint) -> Result<Vec<WeatherDay>, sqlx::Error> {
         let vec = sqlx::query_as::<_, WeatherDay>("select * from weather_days where id = $1")
-            .bind(pg_point.x)
+            .bind(1)
             .fetch_all(&self.pool)
             .await?;
 
