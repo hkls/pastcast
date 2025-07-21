@@ -15,11 +15,7 @@ pub async fn home_handler(State(state): State<Arc<AppState>>) -> impl axum::resp
             format!("Welcome to {} v{}", 1, 2)
         }
         Err(err) => {
-            eprintln!("Error fetching weather data: {:?}", err);
-            axum::response::Response::builder()
-                .status(axum::http::StatusCode::INTERNAL_SERVER_ERROR)
-                .body("Failed to fetch weather data".into())
-                .unwrap()
+            format!("Failed to fetch weather data: {}", err)
         }
     }
 }
