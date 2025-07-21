@@ -1,5 +1,5 @@
-use crate::config::app_state::AppState;
-use crate::handlers::weather::home_handler;
+use crate::configs::state::AppState;
+use crate::handlers::weather_handlers::home_handler;
 use axum::{Router, routing::get};
 use std::sync::Arc;
 
