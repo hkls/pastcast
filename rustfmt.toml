@@ -2,3 +2,11 @@ group_imports = "StdExternalCrate"
 imports_granularity = "Crate"
 reorder_imports = true
 unstable_features = false
+binop_separator = "Front"
+color = "Always"
+comment_width = 80
+condense_wildcard_suffixes = false
+edition = "2024"
+empty_item_single_line = true
+enum_discrim_align_threshold = 0
+
