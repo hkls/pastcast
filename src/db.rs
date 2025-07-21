@@ -1,4 +1,4 @@
-use crate::config::config::Config;
+use crate::configs::config::Config;
 use sqlx::{PgPool, postgres::PgPoolOptions};
 use std::time::Duration;
 
