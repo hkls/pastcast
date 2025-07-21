@@ -29,11 +29,11 @@ impl WeatherStackHttpClient {
 }
 
 pub trait WeatherStackClient {
-    async fn get_current_weather_by_coords(&self, latlon: PgPoint) -> Result<WeatherDay, reqwest::Error>;
+    async fn get_current_weather_by_coords(&self, latlon: PgPoint) -> Result<String, reqwest::Error>;
 }
 
 impl WeatherStackClient for WeatherStackHttpClient {
-    async fn get_current_weather_by_coords(&self, latlon: PgPoint) -> Result<WeatherDay, Error> {
+    async fn get_current_weather_by_coords(&self, latlon: PgPoint) -> Result<String, Error> {
         let url = format!(
             "http://api.weatherstack.com/current?access_key={}&query={},{}",
             self.api_key, latlon.x, latlon.y
@@ -45,7 +45,7 @@ impl WeatherStackClient for WeatherStackHttpClient {
             .send()
             .await?
             .error_for_status()?
-            .json::<WeatherDay>()
+            .json::<String>()
             .await?;
 
         Ok(res)
